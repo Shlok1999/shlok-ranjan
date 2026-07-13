@@ -7,7 +7,9 @@
     data.hero.name.split(" ")[0] + "<br />" + data.hero.name.split(" ").slice(1).join(" ");
   document.getElementById("hero-tagline").textContent = data.hero.tagline;
   document.getElementById("hero-location").textContent = "📍 " + data.hero.location;
-  document.getElementById("hero-email").textContent = "✉ " + data.hero.email;
+  const heroEmail = document.getElementById("hero-email");
+  heroEmail.textContent = "✉ " + data.hero.email;
+  heroEmail.href = "mailto:" + data.hero.email;
   document.title = data.hero.name + " — " + data.hero.role;
 
   // ---- About ----

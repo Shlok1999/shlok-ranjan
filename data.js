@@ -7,7 +7,7 @@ const DEFAULT_PORTFOLIO_DATA = {
     role: "Full-Stack & AI Engineer",
     tagline: "I build the orchestration layer — multi-agent systems, RAG pipelines, and the full-stack products that put them in front of real users.",
     location: "Navi Mumbai, India",
-    email: "hello@shlokranjan.dev",
+    email: "09shlok1999ae1@gmail.com",
     github: "https://github.com/",
     resumeUrl: "#"
   },
@@ -80,7 +80,7 @@ const DEFAULT_PORTFOLIO_DATA = {
       name: "Cloud Gaming Platform",
       stack: "Node.js · Next.js · Google Cloud · Scalable Architecture",
       description: "An end-to-end cloud gaming application, from backend services to client integration, architected for horizontal scale under growing client load.",
-      link: "#"
+      link: "https://glorygames.cloud"
     },
     {
       name: "AI Real Estate Assistant",
@@ -98,7 +98,7 @@ const DEFAULT_PORTFOLIO_DATA = {
       name: "MSME Business Platform",
       stack: "MERN Stack · Java (Android) · Figma",
       description: "A responsive full-stack web app plus a companion native Android app for MSME clients, with UI/UX designed in Figma across both.",
-      link: "#"
+      link: "https://vendor-hub-577.emergent.host/"
     }
   ],
   education: [
@@ -119,7 +119,14 @@ const DEFAULT_PORTFOLIO_DATA = {
 function loadPortfolioData() {
   try {
     const saved = localStorage.getItem("portfolio_data");
-    if (saved) return JSON.parse(saved);
+    if (saved) {
+      const data = JSON.parse(saved);
+      if (data && data.hero && data.hero.email === "hello@shlokranjan.dev") {
+        data.hero.email = "09shlok1999ae1@gmail.com";
+        localStorage.setItem("portfolio_data", JSON.stringify(data));
+      }
+      return data;
+    }
   } catch (e) {
     console.warn("Could not parse saved portfolio data, using defaults.", e);
   }
