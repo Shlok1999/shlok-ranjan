@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Admin — Shlok Ranjan Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+
+<!-- ============== LOGIN SCREEN ============== -->
+<div class="login-screen" id="login-screen">
+  <div class="login-card">
+    <p class="mark">/kt@shlok-ranjan</p>
+    <h1>Admin sign in</h1>
+    <form id="login-form">
+      <div class="field">
+        <label for="username">Username</label>
+        <input type="text" id="username" autocomplete="username" required />
+      </div>
+      <div class="field">
+        <label for="password">Password</label>
+        <input type="password" id="password" autocomplete="current-password" required />
+      </div>
+      <button type="submit" class="btn btn-primary">Sign in</button>
+      <p class="login-error" id="login-error"></p>
+    </form>
+  </div>
+</div>
+
+<!-- ============== DASHBOARD (hidden until logged in) ============== -->
+<div id="dashboard" style="display:none;">
+  <header class="dash-header">
+    <span class="mark">Editing <strong>shlokranjan.dev</strong></span>
+    <div class="dash-actions">
+      <span class="save-status" id="save-status">Saved ✓</span>
+      <a href="../index.html" target="_blank" class="btn btn-ghost btn-small">View site ↗</a>
+      <button class="btn btn-ghost btn-small" id="reset-btn">Reset to defaults</button>
+      <button class="btn btn-danger btn-small" id="logout-btn">Log out</button>
+    </div>
+  </header>
+
+  <div class="dash-body">
+
+    <div class="panel">
+      <h2>Hero</h2>
+      <div class="field"><label>Full name</label><input id="f-name" /></div>
+      <div class="row2">
+        <div class="field"><label>Role / title</label><input id="f-role" /></div>
+        <div class="field"><label>Location</label><input id="f-location" /></div>
+      </div>
+      <div class="field"><label>Tagline</label><textarea id="f-tagline" rows="2"></textarea></div>
+      <div class="row2">
+        <div class="field"><label>Contact email</label><input id="f-email" /></div>
+        <div class="field"><label>GitHub URL</label><input id="f-github" /></div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2>About</h2>
+      <div class="field"><textarea id="f-about" rows="4"></textarea></div>
+    </div>
+
+    <div class="panel">
+      <h2>Skills <span class="count" id="skills-count"></span></h2>
+      <p class="hint">Each group is a category (e.g. "Languages & Frameworks") with a comma-separated list of items.</p>
+      <div id="skills-list"></div>
+      <button class="btn btn-ghost btn-small add-btn" id="add-skill-group">+ Add skill group</button>
+    </div>
+
+    <div class="panel">
+      <h2>Experience <span class="count" id="experience-count"></span></h2>
+      <div id="experience-list"></div>
+      <button class="btn btn-ghost btn-small add-btn" id="add-experience">+ Add role</button>
+    </div>
+
+    <div class="panel">
+      <h2>Projects <span class="count" id="projects-count"></span></h2>
+      <div id="projects-list"></div>
+      <button class="btn btn-ghost btn-small add-btn" id="add-project">+ Add project</button>
+    </div>
+
+    <div class="panel">
+      <h2>Education <span class="count" id="education-count"></span></h2>
+      <div id="education-list"></div>
+      <button class="btn btn-ghost btn-small add-btn" id="add-education">+ Add entry</button>
+    </div>
+
+  </div>
+</div>
+
+<script src="../data.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>
